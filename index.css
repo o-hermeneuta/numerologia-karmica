@@ -1,0 +1,75 @@
+
+.values{
+    padding: 10rem;
+    padding-top: 3rem;
+
+}
+
+.container-card {
+    display: flex;
+    justify-content: center;
+}
+
+.tooltip-image {
+    position: absolute;
+    left: 25%;
+    display: none;
+    pointer-events: none;
+    z-index: 1000;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tooltip-image img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+}
+
+.card-numbers {
+    position: relative;
+    width: 24rem;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.075);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    background-color: white;
+    display: block;
+    transition: box-shadow 0.3s ease;
+}
+
+.card-numbers:hover .tooltip-image {
+    display: block;
+}
+
+.card-numbers:hover {
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.card-content {
+    text-align: center;
+}
+
+.card-title {
+    background-color: #0d6efd;
+    color: white !important;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.card-footer {
+    display: flex;
+    color: black !important;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.card-text {
+    margin: 0;
+    color: inherit;
+    padding-top: 10px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
