@@ -46,7 +46,7 @@ function putValueOnCard(id,card) {
     const image = document.getElementById(`${id}-card`);
     const video = document.getElementById(`${id}-link`);
     name.innerHTML = card.name;
-    image.src = card.image;
+    image.src = `https://o-hermeneuta.github.io/numerologia-karmica${card.image}`;
     video.href = card.video;
 }
 
