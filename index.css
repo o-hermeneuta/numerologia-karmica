@@ -1,3 +1,6 @@
+.btn-primary{
+    background-color: #8852E6 !important;   
+}
 
 .values{
     padding: 10rem;
@@ -13,6 +16,7 @@
 .tooltip-image {
     position: absolute;
     left: 25%;
+    bottom: -50%;
     display: none;
     pointer-events: none;
     z-index: 1000;
@@ -53,7 +57,7 @@
 }
 
 .card-title {
-    background-color: #0d6efd;
+    background-color: #8852E6;
     color: white !important;
     margin-bottom: 1rem;
     font-weight: bold;
