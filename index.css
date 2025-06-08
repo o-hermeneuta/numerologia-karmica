@@ -77,3 +77,32 @@
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
+
+/* Garante que o card ocupe a largura total no mobile */
+@media (max-width: 768px) {
+    .tooltip-image img {
+        display: none;
+    }
+
+    .d-flex.justify-content-between,
+    .d-flex.justify-content-center {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .container-card {
+        width: 100% !important;
+        margin-bottom: 1rem;
+        justify-content: stretch !important;
+    }
+
+    .card-numbers {
+        width: 100% !important;
+    }
+
+    .values {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
