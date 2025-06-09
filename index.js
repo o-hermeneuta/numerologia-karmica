@@ -31,33 +31,42 @@ function generateCards(birthdate) {
     var pi = dia;
     var pe = mes;
     var rva = ano;
+    var rvaSum = rva.toString().split('').map(Number).reduce((a, b) => a + b, 0);
     var mva = ano + dia + mes;
+    var mvaSum = mva.toString().split('').map(Number).reduce((a, b) => a + b, 0);
     var pg = dia + mes;
-    var ilka = pi + pe + rva + mva
+    var ilka = pi + pe + rvaSum + mvaSum;
     var pgString = pg.toString().split('');
     var oculto = pgString.map(Number).reduce((a, b) => a + b, 0);
     var desafio = getCardNumber(pg) < 10 ? 0 : pgString.map(Number).reduce((a, b) => b - a, 0);
     desafio = desafio < 0 ? desafio * -1 : desafio;
-    var fd = rva + desafio;
-    var fm = mva + pg;
+    var fd = rvaSum + desafio;
+    var fm = mvaSum + pg;
 
-    putValueOnCard('pi', arcanosMaiores[getCardNumber(pi)]);
-    putValueOnCard('pe', arcanosMaiores[getCardNumber(pe)]);
-    putValueOnCard('pg', arcanosMaiores[getCardNumber(pg)]);
-    putValueOnCard('oculto', arcanosMaiores[getCardNumber(oculto)]);
-    putValueOnCard('desafio', arcanosMaiores[getCardNumber(desafio)]);
-    putValueOnCard('fd', arcanosMaiores[getCardNumber(fd)]);
-    putValueOnCard('rva', arcanosMaiores[getCardNumber(rva)]);
-    putValueOnCard('mva', arcanosMaiores[getCardNumber(mva)]);
-    putValueOnCard('fm', arcanosMaiores[getCardNumber(fm)]);
-    putValueOnCard('abalo', arcanosMaiores[getCardNumber(fd + fm)]);
-    putValueOnCard('ilka', arcanosMaiores[getCardNumber(ilka)]);
+    putValueOnCard('pi', pi);
+    putValueOnCard('pe', pe);
+    putValueOnCard('pg', pg);
+    putValueOnCard('oculto', oculto);
+    putValueOnCard('desafio', desafio);
+    putValueOnCard('fd', fd);
+    putValueOnCard('rva', rva, rvaSum);
+    putValueOnCard('mva', mva, mvaSum);
+    putValueOnCard('fm', fm);
+    putValueOnCard('abalo', fd + fm);
+    putValueOnCard('ilka', ilka);
 }
 
-function putValueOnCard(id, card) {
+function putValueOnCard(id, number, calcNumber = null) {
+    const title = document.getElementById(`${id}-title`);
     const name = document.getElementById(`${id}-name`);
     const image = document.getElementById(`${id}-card`);
     const video = document.getElementById(`${id}-link`);
+    card = arcanosMaiores[getCardNumber(number)];
+    if (calcNumber) {
+        title.innerHTML = `${number}  ->  ${calcNumber} (${title.innerHTML})`;
+        card = arcanosMaiores[getCardNumber(calcNumber)];
+    }
+    else title.innerHTML = `${number} (${title.innerHTML})`;
     name.innerHTML = card.name;
     image.src = `https://o-hermeneuta.github.io/numerologia-karmica${card.image}`;
     video.href = card.video;
