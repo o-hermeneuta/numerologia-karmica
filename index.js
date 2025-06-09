@@ -36,7 +36,7 @@ function generateCards(birthdate) {
     var mvaSum = mva.toString().split('').map(Number).reduce((a, b) => a + b, 0);
     var pg = dia + mes;
     var ilka = pi + pe + rvaSum + mvaSum;
-    var pgString = pg.toString().split('');
+    var pgString = getCardNumber(pg).toString().split('');
     var oculto = pgString.map(Number).reduce((a, b) => a + b, 0);
     var desafio = getCardNumber(pg) < 10 ? 0 : pgString.map(Number).reduce((a, b) => b - a, 0);
     desafio = desafio < 0 ? desafio * -1 : desafio;
