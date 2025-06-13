@@ -36,7 +36,7 @@ function generateCards(birthdate) {
     var mvaSum = mva.toString().split('').map(Number).reduce((a, b) => a + b, 0);
     var pg = dia + mes;
     var ilka = pi + pe + rvaSum + mvaSum;
-    var pgString = getCardNumber(pg).toString().split('');
+    var pgString = pg.toString().split('');
     var oculto = pgString.map(Number).reduce((a, b) => a + b, 0);
     var desafio = getCardNumber(pg) < 10 ? 0 : pgString.map(Number).reduce((a, b) => b - a, 0);
     desafio = desafio < 0 ? desafio * -1 : desafio;
@@ -67,8 +67,8 @@ function putValueOnCard(id, number, calcNumber = null) {
         card = arcanosMaiores[getCardNumber(calcNumber)];
     }
     else title.innerHTML = `${number} (${title.innerHTML})`;
-    name.innerHTML = card.name;
-    image.src = `https://o-hermeneuta.github.io/numerologia-karmica${card.image}`;
+    name.innerHTML = `${card.name}.`;
+    image.src = `/numerologia-karmica${card.image}`;
     video.href = card.video;
 }
 
